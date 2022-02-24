@@ -1,0 +1,81 @@
+
+
+
+
+  <div class="container">
+    <div class="card">
+    <nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+
+        <li class="nav-item">
+          <a class="nav-link" href="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ProductList">ProductList</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </nav>
+  <div class="card-body">
+
+    <div class='row'>
+      <div class='col-md-2'>Filter by:</div>
+      <div class='col-md-4'>
+        <input type='text'
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <div class='row'
+         *ngIf='listFilter'>
+      <div class='col-md-6'>
+        <h4>Filtered by:{{listFilter}} </h4>
+      </div>
+    </div>
+    <div class="table-responsive">
+    <table class="table" *ngIf="Products?.length">
+
+      <thead>
+        <tr>
+          <th><button  (click)="toggleImage()" class="btn btn-primary">
+            showImage
+          </button></th>
+          <th>productId</th>
+          <th>productName</th>
+          <th>productCode</th>
+          <th>releaseDate</th>
+          <th>description</th>
+          <th>price</th>
+          <th>starRating</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let product of Products'>
+          <td>
+            <img *ngIf='showImage'
+                 [src]='product.imageUrl'
+                 [title]='product.productName | uppercase'
+                 [style.width.px]='imageWidth'
+                 [style.margin.px]='imageMargin'>
+          </td>
+          <td>{{ product.productId}} </td>
+          <td> {{ product.productName }}</td>
+          <td>{{ product.productCode | lowercase  }}</td>
+          <td>{{ product.releaseDate }}</td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price | currency:"USD" : "symbol" : "1.2-2"}}</td>
+        <td class="starRating"> {{product.starRating}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+
+  </div>
+  </div>
+
+</div>
