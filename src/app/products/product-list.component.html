@@ -24,8 +24,7 @@
     <div class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
-        <input type='text'
-               [(ngModel)]='listFilter' />
+        <input type='text' [(ngModel)]="listFilter" (name)="listFilter"/>
       </div>
     </div>
     <div class='row'
@@ -53,7 +52,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor='let product of Products'>
+        <tr *ngFor='let product of filteredProducts'>
           <td>
             <img *ngIf='showImage'
                  [src]='product.imageUrl'

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
+
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -11,8 +12,26 @@ export class ProductListComponent implements OnInit {
   imageWidth = 50;
   imageMargin = 2;
   showImage: boolean = false;
-  listFilter = 'cart';
 
+
+  private _listFilter: string = '';
+
+  get listFilter(): string{
+
+   return  this._listFilter
+
+  }
+
+  set listFilter(value : string){
+
+    this._listFilter = value;
+
+    console.log('waa value : ' , value)
+  this.filteredProducts = this.performFilter(value)
+  }
+
+
+  filteredProducts: IProduct []= [];
 
   Products: IProduct []= [
 
@@ -76,9 +95,19 @@ export class ProductListComponent implements OnInit {
   }
   constructor() { }
 
-  ngOnInit(): void {
+
+  performFilter(filrtBY: string):  IProduct[] {
+
+    filrtBY = filrtBY.toLowerCase();
+
+    return this.Products.filter((product: IProduct) =>
+
+    product.productName.toLowerCase().includes(filrtBY)
+    );
   }
+  ngOnInit(): void {
+    this.listFilter = '';
 
 
-
+  }
 }
