@@ -27,11 +27,11 @@ export class ProductListComponent implements OnInit {
     this._listFilter = value;
 
     console.log('waa value : ' , value)
-  this.filteredProducts = this.performFilter(value)
+  this.shaandheentaProducts = this.shaandheeFilter(value)
   }
 
 
-  filteredProducts: IProduct []= [];
+  shaandheentaProducts: IProduct []= [];
 
   Products: IProduct []= [
 
@@ -96,13 +96,13 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
 
-  performFilter(filrtBY: string):  IProduct[] {
+  shaandheeFilter(shaandheesan: string):  IProduct[] {
 
-    filrtBY = filrtBY.toLowerCase();
+    shaandheesan = shaandheesan.toLowerCase();
 
     return this.Products.filter((product: IProduct) =>
 
-    product.productName.toLowerCase().includes(filrtBY)
+    product.productName.toLowerCase().includes(shaandheesan)
     );
   }
   ngOnInit(): void {
