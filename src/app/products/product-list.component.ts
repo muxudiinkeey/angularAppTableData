@@ -16,24 +16,24 @@ export class ProductListComponent implements OnInit {
 
   private _listFilter: string = '';
 
-  get listFilter(): string{
+  get listFilter(): string {
 
-   return  this._listFilter
+    return this._listFilter
 
   }
 
-  set listFilter(value : string){
+  set listFilter(value: string) {
 
     this._listFilter = value;
 
-    console.log('waa value : ' , value)
-  this.shaandheentaProducts = this.shaandheeFilter(value)
+    console.log('waa value : ', value)
+    this.shaandheentaProducts = this.shaandheeFilter(value)
   }
 
 
-  shaandheentaProducts: IProduct []= [];
+  shaandheentaProducts: IProduct[] = [];
 
-  Products: IProduct []= [
+  Products: IProduct[] = [
 
     {
       "productId": 1,
@@ -96,13 +96,13 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
 
-  shaandheeFilter(shaandheesan: string):  IProduct[] {
+  shaandheeFilter(shaandheesan: string): IProduct[] {
 
     shaandheesan = shaandheesan.toLowerCase();
 
     return this.Products.filter((product: IProduct) =>
 
-    product.productName.toLowerCase().includes(shaandheesan)
+      product.productName.toLowerCase().includes(shaandheesan)
     );
   }
   ngOnInit(): void {
@@ -111,7 +111,7 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  onRatingClicked(message: string): void{
- this.title = 'productlist list :' + message;
+  onRatingClicked(message: string): void {
+    this.title = 'productlist list :' + message;
   }
 }
