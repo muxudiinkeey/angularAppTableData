@@ -8,7 +8,7 @@ import { IProduct } from './product';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  pageTitle = 'Product List';
+  title = 'Product List';
   imageWidth = 50;
   imageMargin = 2;
   showImage: boolean = false;
@@ -109,5 +109,9 @@ export class ProductListComponent implements OnInit {
     this.listFilter = '';
 
 
+  }
+
+  onRatingClicked(message: string): void{
+ this.title = 'productlist list :' + message;
   }
 }

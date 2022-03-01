@@ -19,8 +19,9 @@
       </ul>
     </div>
   </nav>
-  <div class="card-body">
 
+  <div class="card-body">
+    {{title}}
     <div class='row'>
       <div class='col-md-2'>shaandheesan:</div>
       <div class='col-md-4'>
@@ -66,8 +67,9 @@
           <td>{{ product.releaseDate }}</td>
           <td>{{ product.description }}</td>
           <td>{{ product.price | currency:"USD" : "symbol" : "1.2-2"}}</td>
-        <td class="starRating"> {{product.starRating}}</td>
-
+          <td><pm-star [rating]="product.starRating"
+             (ratingClicked)="onRatingClicked($event)">
+          </pm-star></td>
         </tr>
       </tbody>
     </table>
