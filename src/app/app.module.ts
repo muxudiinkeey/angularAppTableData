@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ProductListComponent } from './products/product-list.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,8 +13,8 @@ import { ProductListComponent } from './products/product-list.component';
     ProductListComponent
   ],
   imports: [
-BrowserModule,
-  FormsModule
+    BrowserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
